@@ -1,0 +1,55 @@
+﻿<Window x:Class="BombDropper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BombDropper"
+		xmlns:utils="clr-namespace:BombDropper.Utils"
+		mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+		ContentRendered="Window_ContentRendered">
+	<Window.Resources>
+		<ResourceDictionary>
+			<utils:BooleanInverseConverter x:Key="BooleanInverseConverter"/>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid x:Name="gr_LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition MinWidth="280" Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+		<Border BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
+			<Grid>
+				<Canvas x:Name="cv_GameBackground" SizeChanged="cv_GameBackground_SizeChanged" MinWidth="200" MinHeight="200">
+					<Canvas.Background>
+						<RadialGradientBrush>
+							<GradientStop Color="AliceBlue" Offset="0"></GradientStop>
+							<GradientStop Color="White" Offset="0.7"></GradientStop>
+						</RadialGradientBrush>
+					</Canvas.Background>
+					<!--<local:Bomb Canvas.Top="0" Canvas.Left="0"></local:Bomb>-->
+				</Canvas>
+            </Grid>
+        </Border>
+
+		<Border Grid.Column="1" BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
+			<Border.Background>
+				<RadialGradientBrush GradientOrigin="1,0.7" Center="1,0.7" RadiusX="1" RadiusY="1">
+					<GradientStop Color="AliceBlue"  Offset="0"></GradientStop>
+					<GradientStop Color="White" Offset="1"></GradientStop>
+				</RadialGradientBrush>
+			</Border.Background>
+			<StackPanel Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="300">
+				<TextBlock FontFamily="Impact" FontSize="35" Foreground="Orange" TextAlignment="Center">Bomb Dropper</TextBlock>
+				<TextBlock x:Name="lblRate" Margin="0,30,0,0" TextWrapping="Wrap" FontFamily="Georgia" FontSize="14"></TextBlock>
+				<TextBlock x:Name="lblSpeed" Margin="0,30" TextWrapping="Wrap" FontFamily="Georgia" FontSize="14"></TextBlock>
+				<TextBlock x:Name="lblStatus" 
+			 TextWrapping="WrapWithOverflow" FontFamily="Georgia" FontSize="20" Text="{Binding StatusDisplay}" TextAlignment="Center"></TextBlock>
+				<Button x:Name="cmdStart" Padding="5" Margin="0,30" Width="80" Content="Start Game" Click="cmdStart_Click"
+					IsEnabled="{Binding GameRunning, Converter={StaticResource BooleanInverseConverter}}"
+				></Button>
+			</StackPanel>
+		</Border>
+    </Grid>
+</Window>
