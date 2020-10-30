@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BombDropper", "BombDropper\BombDropper.csproj", "{057714E8-378E-446A-BC5D-83BA46CE87C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlTemplateBrowser", "ControlTemplateBrowser\ControlTemplateBrowser.csproj", "{2FEE4FC5-D5C6-4BB2-B1FF-9493A1A1BE3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlTemplateBrowser", "ControlTemplateBrowser\ControlTemplateBrowser.csproj", "{2FEE4FC5-D5C6-4BB2-B1FF-9493A1A1BE3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryBasicMVVM", "VeryBasicMVVM\VeryBasicMVVM.csproj", "{3077E396-30BE-481D-90A4-BA2D66832B68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomControlsClient", "CustomControls\CustomControlsClient.csproj", "{C3EDBCF2-39D4-46CC-8927-20AA04171572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataValidation", "DataValidation\DataValidation.csproj", "{C5046321-4910-490B-B015-27C8E4DD6AA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{2FEE4FC5-D5C6-4BB2-B1FF-9493A1A1BE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FEE4FC5-D5C6-4BB2-B1FF-9493A1A1BE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FEE4FC5-D5C6-4BB2-B1FF-9493A1A1BE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3077E396-30BE-481D-90A4-BA2D66832B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3077E396-30BE-481D-90A4-BA2D66832B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3077E396-30BE-481D-90A4-BA2D66832B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3077E396-30BE-481D-90A4-BA2D66832B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3EDBCF2-39D4-46CC-8927-20AA04171572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3EDBCF2-39D4-46CC-8927-20AA04171572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3EDBCF2-39D4-46CC-8927-20AA04171572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3EDBCF2-39D4-46CC-8927-20AA04171572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5046321-4910-490B-B015-27C8E4DD6AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5046321-4910-490B-B015-27C8E4DD6AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5046321-4910-490B-B015-27C8E4DD6AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5046321-4910-490B-B015-27C8E4DD6AA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
