@@ -6,9 +6,9 @@ You have two ways to do it:
 
 They achieve the same thing but if you use MVVM model, they fit into different parts:
 
-`<Validation rules>` is for "View". It can be factorized easily and reused.\
-It is best for simple validation logics checked in the front end and has to be placed in Xaml.
-```xaml
+`Validation rules` is for "View". It can be factorized easily and reused.\
+It is best for simple validation logics checked in the front end and has to be placed in the View class.
+```xml
 	<TextBlock Margin="7" Grid.Row="2">Unit Cost:</TextBlock>
 	<TextBox Margin="5" Grid.Row="2" Grid.Column="1">
 		<TextBox.Text>
@@ -67,11 +67,11 @@ It is best for simple validation logics checked in the front end and has to be p
         }
     }
 ```
-`<INotifyDataErrorInfo>` fits into the ViewModel part naturally. 
+`INotifyDataErrorInfo` fits into the ViewModel part naturally. 
 In my opinion, if several rules needs to be checked at the same time or the validation is part of business logic, the rules implementation should go here.
 Another benefit of doing this is that a list of errors is available in ViewModel, and we can check the error info and count them anytime. Otherwise, if we use validation rules, `<Validation.HasError>` needs to be called everytime if we want to check error status.
 It works similar to INotifyPropertyChanged
-```xaml
+```xml
 	<TextBlock Margin="7" Grid.Row="1">Model Name:</TextBlock>
 	<TextBox Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Path=ModelName, 
 	ValidatesOnNotifyDataErrors=True,NotifyOnValidationError=True}"></TextBox>
@@ -144,7 +144,7 @@ In view model
 ```
 To apply another controltemplate whenever there's a validation error or calling something, we can set the parent control say `<grid>` as:
 Such setting works in both ways of validation.
-```
+```xml
 	<Grid Name="gridProductDetails"
 		  Validation.Error="validationError">
 		<Grid.Resources>
