@@ -1,0 +1,68 @@
+﻿<Window x:Class="RichTextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RichTextEditor"
+		xmlns:utils="clr-namespace:RichTextEditor.Utils"
+		xmlns:vm="clr-namespace:RichTextEditor.ViewModels"
+		xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        mc:Ignorable="d"
+        Title="{Binding WindowTitle}" Height="450" Width="800"
+		DataContext="{StaticResource RootViewModel}"
+		Loaded="Window_Loaded">
+		<!--TODO -->
+	<Window.Resources>
+	</Window.Resources>
+
+	<!--Shortcuts for custom commands-->
+	<Window.InputBindings>
+		<KeyBinding Command="{Binding Commands.OpenFile}" Modifiers="Ctrl" Key="O"></KeyBinding>
+		<KeyBinding Command="{Binding Commands.SaveAsFile}" Modifiers="Ctrl" Key="S"></KeyBinding>
+		<KeyBinding Command="{Binding Commands.NewFile}" Modifiers="Ctrl" Key="N"></KeyBinding>
+	</Window.InputBindings>
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+		<ToolBarTray Grid.Row="0">
+			<ToolBar>
+				<Button x:Name="bt_New" Command="{Binding Commands.NewFile}">New</Button>
+				<Button x:Name="bt_Open" Command="{Binding Commands.OpenFile}">Open</Button>
+				<Button x:Name="bt_SaveAs" Command="{Binding Commands.SaveAsFile}">Save as</Button>
+			</ToolBar>
+			<ToolBar FontFamily="Times New Roman">
+				<Button FontWeight="Bold" Command="EditingCommands.ToggleBold">B</Button>
+				<Button FontStyle="Italic" Command="EditingCommands.ToggleItalic">I</Button>
+				<Button Command="EditingCommands.ToggleUnderline">
+					<TextBlock TextDecorations="Underline">U</TextBlock>
+				</Button>
+			</ToolBar>
+			<ToolBar>
+				<ToggleButton x:Name="tb_ShowRaw" IsChecked="{Binding TextEditorPanelViewModel.IsRawXamlShowing, Mode=TwoWay}">Show flow document as raw XAML</ToggleButton>
+				<Button Click="tb_XamlText_LostFocus" 
+				IsEnabled="{Binding ElementName=tb_ShowRaw, Path=IsChecked}">Preview Xaml Raw</Button>
+			</ToolBar>
+		</ToolBarTray>
+		<!--RichTextBox as the editor control-->
+		<toolkit:RichTextBox Name="rtb_Editor" Grid.Row="1"  Margin="0,0,0,5" FontSize="10"
+		PreviewMouseDown="richTextBox_MouseDown"
+		Text="{Binding TextEditorPanelViewModel.Notes}"
+		MaxHeight="500" VerticalScrollBarVisibility="Auto"
+		TextFormatter="{Binding TextEditorPanelViewModel.OpenedFileName, Converter={StaticResource FileNameToTextFormatterConverter}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+		</toolkit:RichTextBox>
+
+		<GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" Foreground="LightGray"
+		Visibility="{Binding TextEditorPanelViewModel.IsRawXamlShowing, Converter={StaticResource BooleanToVisibilityConverter}}" >
+		</GridSplitter>
+		<ScrollViewer Grid.Row="3" Visibility="Visible" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+			<TextBox x:Name="tb_XamlText" Tag="{Binding TextEditorPanelViewModel.OpenedFileName}"  TextWrapping="Wrap" Margin="0,5,0,0" Height="150"
+			VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+		Visibility="{Binding TextEditorPanelViewModel.IsRawXamlShowing, Converter={StaticResource BooleanToVisibilityConverter}}" 
+		Text="{Binding TextEditorPanelViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+		</ScrollViewer>
+	</Grid>
+</Window>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\test.mp3" />
+    <None Remove="resources\test.mpg" />
+    <None Remove="resources\test.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\test.mp3" />
+    <Resource Include="resources\test.mpg" />
+    <Resource Include="resources\test.wav" />
+  </ItemGroup>
+
+</Project>

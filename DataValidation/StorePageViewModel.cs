@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace DataValidation
@@ -40,6 +41,13 @@ namespace DataValidation
 				products = value;
 				NotifyPropertyChanged();
 			} }
+		public ICollectionView ProductCollectionView
+		{
+			get
+			{
+				return CollectionViewSource.GetDefaultView(Products);
+			}
+		}
 		#endregion
 
 		#region edit Menu
@@ -204,6 +212,7 @@ namespace DataValidation
 			Products = new ObservableCollection<Product>(storeDb.GetProducts());
 			IsDirty = false;
 			//MessageBox.Show(Products.Count.ToString());
+			ProductCollectionView.GroupDescriptions.Add(new PropertyGroupDescription("CategoryName"));
 		}
 	}
 }
