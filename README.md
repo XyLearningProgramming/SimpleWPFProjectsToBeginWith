@@ -6,39 +6,41 @@ But I tried to write it with newer C# features (with .Net Core 3.0) and seperate
 Here are lists of wpf techniques covered in each sub project:
 
 1. BombDropper
-	*UserControl
-	*Animation system and StoryBoard
+	1.1 UserControl
+	1.2 Animation system and StoryBoard
 		*EventTriggers inside Animation
-	*Hit test inside canvas control
+	1.3 Hit test inside canvas control
 	
 2. ControlTemplateBrowser
-	*How reflection can be used to check source code of controltemplate inside each control
-	*Treeview
+	2.1 How reflection can be used to check source code of controltemplate inside each control
+	2.2 Treeview
 
 3. Custom Controls
-	*Two ways to define "custom control" in WPF: 
-		*UserControl
-		*Using themes subfile (seperate .cs file with view)
-			*How to define Dependency Property inside custom control class
-			*How to define callbacks of when Dependency Property changes
+	3.1. Two ways to define "custom control" in WPF: 
+		3.1.2 UserControl
+		3.1.3 Using themes subfile (seperate .cs file with view)
+		
+			How to define Dependency Property inside custom control class
+			
+			How to define callbacks of when Dependency Property changes
 			
 4. Data Validation
-	*Two validation techniques:
-		*Validation rules: quick check in view, easy to factorize
-		*INotifyDataErrorInfo: easy to check multiple properties at the same time inside Viewmodel
+	4.1 Two validation techniques:
+		4.2 Validation rules: quick check in view, easy to factorize
+		4.3 INotifyDataErrorInfo: easy to check multiple properties at the same time inside Viewmodel
 
 5. Very Basic MVVM
-	*A very basic MVVM implementation to unrealistic show students' info in grid view.
+	5.1 A very basic MVVM implementation to unrealistic show students' info in grid view.
 	
 6. RichTextEditor
-	*A naive text editor that can create and update and save .rtf .xaml .txt format files using the RichTextBox control in XCeed Toolkit.
-	*Two panels showing raw text and formatted text allowing to make changes at the same time.
-	*More importantly, it is a more sophisticated MVVM implementation. Easy to scale up.
-		*Since MVVM tends to have large viewmodel as the project grows, we can:
-			*Create viewmodel base class and seperate viewmodels by their functions / business logic with a RootViewModel connecting to all
-			*Create commands class 
-			*Create resource dictionaries in App.xaml (for instance: converters, color theme)
-	*Using something as MVVM Light could really save time. Lesson learned.
+	6.1 A naive text editor that can create and update and save .rtf .xaml .txt format files using the RichTextBox control in XCeed Toolkit.
+	6.2 Two panels showing raw text and formatted text allowing to make changes at the same time.
+	6.3 More importantly, it is a more sophisticated MVVM implementation. Easy to scale up.
+		6.4 Since MVVM tends to have large viewmodel as the project grows, we can:
+			6.4.1 Create viewmodel base class and seperate viewmodels by their functions / business logic with a RootViewModel connecting to all
+			6.4.2 Create commands class 
+			6.4.3 Create resource dictionaries in App.xaml (for instance: converters, color theme)
+	6.5 Using something as MVVM Light could really save time. Lesson learned.
 	
 To continue Wpf journey, I suggest to implement some useful and functioning (hopefully) applications (and I will do so!).
 Here are some projects that I recommend and will start from:
